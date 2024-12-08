@@ -6,7 +6,7 @@ class SliderComponent extends Component {
     super(props);
     this.state = {
       sliderData: [],
-      counter: 0,
+      currentImg: 0,
     };
   }
 
@@ -18,48 +18,80 @@ class SliderComponent extends Component {
   }
 
   nextSlide = () => {
-    const { counter, sliderData } = this.state;
-    counter === sliderData.length
-      ? this.setState({ counter: 1 })
-      : this.setState({ counter: (counter + 1) % sliderData.length });
+    const { currentImg, sliderData } = this.state;
+    const nextSlide = setTimeout(() => {
+      currentImg === sliderData.length
+        ? this.setState({ currentImg: 1 })
+        : this.setState({ currentImg: (currentImg + 1) % sliderData.length });
+    }, 500);
+    this.setState({ nextSlide });
   };
 
   prevSlide = () => {
-    const { counter, sliderData } = this.state;
-    if (counter > 0) {
-      this.setState({
-        counter: counter - 1,
-      });
-    } else {
-      this.setState({
-        counter: 4,
-      });
-    }
-    // this.setState({
-    //   counter: counter > 0 ? counter - 1 : 4
-    // })
+    const { currentImg } = this.state;
+    const prevSlide = setTimeout(() => {
+      currentImg > 0
+        ? this.setState({ currentImg: currentImg - 1 })
+        : this.setState({ currentImg: 4 });
+    }, 500);
+    this.setState({ prevSlide });
+  };
+
+  autoSwitcher = () => {
+    const autoSwitcher = setInterval(() => {
+      this.nextSlide();
+    }, 4000);
+
+    this.setState({
+      autoSwitcher,
+    });
+  };
+
+  stopAutoSwitcher = () => {
+    const { autoSwitcher } = this.state;
+    clearInterval(autoSwitcher);
+    this.setState({
+      autoSwitcher: null,
+    });
   };
 
   render() {
-    const { sliderData, counter } = this.state;
+    const { sliderData, currentImg } = this.state;
 
     if (sliderData.length === 0) {
       return <p>Loading...</p>;
     }
 
     return (
-      <article key={sliderData[counter].id} className={styles.sliderArticle}>
+      <article className={styles.sliderArticle}>
         <div className={styles.btnDiv}>
-          <button onClick={this.prevSlide}>←</button>
-          <button onClick={this.nextSlide}>→</button>
+          <button
+            className={styles.btnStyle}
+            onClick={() => this.autoSwitcher()}
+          >
+            Auto switcher
+          </button>
+          <button
+            className={styles.btnStyle}
+            onClick={() => this.stopAutoSwitcher()}
+          >
+            Stop auto swithcer
+          </button>
+          <button className={styles.btnStyle} onClick={this.prevSlide}>
+            ←
+          </button>
+          <p>Current page: {currentImg + 1}</p>
+          <button className={styles.btnStyle} onClick={this.nextSlide}>
+            →
+          </button>
         </div>
         <img
           className={styles.img}
-          src={sliderData[counter].img}
-          alt={sliderData[counter].name}
+          src={sliderData[currentImg].img}
+          alt={sliderData[currentImg].name}
         />
-        <h3 className={styles.name}>{sliderData[counter].name}</h3>
-        <p className={styles.info}>{sliderData[counter].info}</p>
+        <h3 className={styles.name}>{sliderData[currentImg].name}</h3>
+        <p className={styles.info}>{sliderData[currentImg].info}</p>
       </article>
     );
   }

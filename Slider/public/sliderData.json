@@ -1,30 +1,25 @@
 [
   {
-    "id": 1,
     "img": "https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-cosmic-reef-2400x1200.jpg?t=tn2400",
     "name": "The cosmicReef: NGC 2014 and NGC 2020",
     "info": "A colorful image resembling a cosmic version of an undersea world teeming with stars is being released to commemorate the Hubble Space Telescope's 30 years of viewing the wonders of space."
   },
   {
-    "id": 2,
     "img": "https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-lagoon-nebula.jpg?t=tn2400",
     "name": "Lagoon Nebula",
     "info": "The Lagoon Nebule, a vast stellar nursery located 4,000 light-years away, provides an extraordinary tapestry os star birth."
   },
   {
-    "id": 3,
     "img": "https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-hh24.jpg?t=tn2400",
     "name": "HH24 'light saber'",
     "info": "The newborn star in Hebrig-Haro 24 (HH 24) is hidden from direct view, but jets blasting out along its rotation axis create a series of glowing shock fronts, revealing the new star's presence"
   },
   {
-    "id": 4,
     "img": "https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-eagle-nebula.jpg?t=tn2400",
     "name": "Eagle Nebula",
     "info": "Stars are being born deep inside the so called Pillars of Creation, which are made of cold hydrogen gas laced with dust."
   },
   {
-    "id": 5,
     "img": "https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-saturn.jpg?t=tn2400",
     "name": "Saturn",
     "info": "Hubble captured exquisite views of Saturn's ring system and atmospheric details that once could only be provided by spacecraft visiting the distant world."
